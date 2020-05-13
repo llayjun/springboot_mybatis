@@ -1,6 +1,7 @@
 package com.springboot.demo.controller;
 
 import com.springboot.demo.entity.User;
+import com.springboot.demo.service.DetailService;
 import com.springboot.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -24,6 +25,14 @@ public class HelloController {
     @RequestMapping("/findAll")
     public List<User> findAll(){
         return userService.findAll();
+    }
+
+    @Autowired
+    private DetailService mDetailService;
+
+    @RequestMapping("/getAllNameList")
+    public List<String> getAllNameList() {
+        return mDetailService.getDetailNameList();
     }
 
 }
